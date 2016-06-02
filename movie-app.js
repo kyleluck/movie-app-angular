@@ -85,9 +85,9 @@ app.controller('PopularController', function($scope, $http) {
 });
 
 //Search controller
-app.controller('SearchController', function($scope, $http, $location) {
+app.controller('SearchController', function($scope, $http, $httpParamSerializerJQLike) {
   $scope.searchMovies = function() {
-    $http.get("http://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&query=" + $scope.searchtext)
+    $http.get("http://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&query=" + $httpParamSerializerJQLike($scope.searchtext))
       .then(function(response) {
         console.log('search results: ', response);
         $scope.response = response;
