@@ -1,6 +1,4 @@
-<!-- <a href="#/" class="link">Back to Main Page</a> -->
 <div>
-  <img class="details-poster" ng-src="http://image.tmdb.org/t/p/w342/{{ response.data.poster_path }}"/>
   <div class="details">
     <h1>{{ response.data.title }}</h1>
     <p>Tagline: {{ response.data.tagline }}</p>
@@ -16,5 +14,10 @@
         <li ng-repeat="genre in response.data.genres">{{ genre.name }}</li>
       </ul>
     </div>
+    <div class="reviews">
+      <p ng-show="reviews.data.results.length">Reviews:</p>
+      <p ng-repeat="review in reviews.data.results">{{ review.content }} - {{ review.author }}</p>
+    </div>
   </div>
+  <img class="details-poster" ng-src="http://image.tmdb.org/t/p/w342/{{ response.data.poster_path }}"/>
 </div>

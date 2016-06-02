@@ -44,6 +44,13 @@ app.controller('DetailsController', function($scope, $http, $routeParams) {
       $scope.response = response;
       console.log(response);
     });
+
+  //get reviews
+  $http.get("http://api.themoviedb.org/3/movie/" + $scope.movieId + "/reviews?api_key=" + API_KEY)
+    .then(function(response) {
+      $scope.reviews = response;
+      console.log('reviews: ', response);
+    });
 });
 
 //Top Rated controller
