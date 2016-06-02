@@ -53,7 +53,6 @@ app.controller('DetailsController', function($scope, $http, $routeParams) {
   $http.get("http://api.themoviedb.org/3/movie/" + $scope.movieId + "/reviews?api_key=" + API_KEY)
     .then(function(response) {
       $scope.reviews = response;
-      console.log('reviews: ', response);
     });
 });
 
@@ -62,7 +61,6 @@ app.controller('TopRatedController', function($scope, $http) {
   $http.get("http://api.themoviedb.org/3/movie/top_rated?api_key=" + API_KEY)
     .then(function(response) {
       $scope.response = response;
-      console.log(response);
     });
 });
 
@@ -71,7 +69,6 @@ app.controller('UpcomingController', function($scope, $http) {
   $http.get("http://api.themoviedb.org/3/movie/upcoming?api_key=" + API_KEY)
     .then(function(response) {
       $scope.response = response;
-      console.log(response);
     });
 });
 
@@ -80,7 +77,6 @@ app.controller('PopularController', function($scope, $http) {
   $http.get("http://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY)
     .then(function(response) {
       $scope.response = response;
-      console.log(response);
     });
 });
 
@@ -89,7 +85,6 @@ app.controller('SearchController', function($scope, $http, $httpParamSerializerJ
   $scope.searchMovies = function() {
     $http.get("http://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&query=" + $httpParamSerializerJQLike($scope.searchtext))
       .then(function(response) {
-        console.log('search results: ', response);
         $scope.response = response;
       });
   };
