@@ -1,18 +1,20 @@
 <a href="#/">Back to Main Page</a>
 <div>
-  <h1>{{ response.data.title }}</h1>
-  <img ng-src="http://image.tmdb.org/t/p/w500/{{ response.data.poster_path }}"/>
-  <p>{{ response.data.tagline }}</p>
-  <p>{{ response.data.overview }}</p>
-  <p>{{ response.data.popularity }}</p>
-  <a ng-show="response.data.homepage" ng-href="{{ response.data.homepage }}">Website</a>
-  <a ng-show="response.data.imdb_id" ng-href="http://www.imdb.com/title/{{ response.data.imdb_id }}">IMDB</a>
-  <p>{{ response.data.release_date }}</p>
-  <p>{{ response.data.runtime }}</p>
-  <div>
-    <h4>Genres</h4>
-    <ul>
-      <li ng-repeat="genre in response.data.genres">{{ genre.name }}</li>
-    </ul>
+  <img class="details-poster" ng-src="http://image.tmdb.org/t/p/w342/{{ response.data.poster_path }}"/>
+  <div class="details">
+    <h1>{{ response.data.title }}</h1>
+    <p>Tagline: {{ response.data.tagline }}</p>
+    <p>Overview: {{ response.data.overview }}</p>
+    <p>Popularity: {{ response.data.popularity }}</p>
+    <a ng-show="response.data.homepage" ng-href="{{ response.data.homepage }}">Website</a>
+    <a ng-show="response.data.imdb_id" ng-href="http://www.imdb.com/title/{{ response.data.imdb_id }}">IMDB</a>
+    <p>Release Date: {{ response.data.release_date }}</p>
+    <p>Runtime: {{ response.data.runtime }}</p>
+    <div>
+      <p>Genres</p>
+      <ul>
+        <li ng-repeat="genre in response.data.genres">{{ genre.name }}</li>
+      </ul>
+    </div>
   </div>
 </div>

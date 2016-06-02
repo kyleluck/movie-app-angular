@@ -9,6 +9,10 @@ app.config(function($routeProvider) {
       controller: 'MainController',
       templateUrl: 'main.html'
     })
+    .when('/toprated', {
+      controller: 'TopRatedController',
+      templateUrl: 'toprated.html'
+    })
     .when('/:movieId', {
       controller: 'DetailsController',
       templateUrl: 'details.html'
@@ -28,6 +32,15 @@ app.controller('MainController', function($scope, $http) {
 app.controller('DetailsController', function($scope, $http, $routeParams) {
   $scope.movieId = $routeParams.movieId;
   $http.get("http://api.themoviedb.org/3/movie/" + $scope.movieId + "?api_key=" + API_KEY)
+    .then(function(response) {
+      $scope.response = response;
+      console.log(response);
+    });
+});
+
+//Top Rated controller
+app.controller('TopRatedController', function($scope, $http) {
+  $http.get("http://api.themoviedb.org/3/movie/top_rated?api_key=" + API_KEY)
     .then(function(response) {
       $scope.response = response;
       console.log(response);
