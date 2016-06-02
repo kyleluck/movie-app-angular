@@ -13,6 +13,14 @@ app.config(function($routeProvider) {
       controller: 'TopRatedController',
       templateUrl: 'toprated.html'
     })
+    .when('/upcoming', {
+      controller: 'UpcomingController',
+      templateUrl: 'upcoming.html'
+    })
+    .when('/popular', {
+      controller: 'PopularController',
+      templateUrl: 'popular.html'
+    })
     .when('/:movieId', {
       controller: 'DetailsController',
       templateUrl: 'details.html'
@@ -41,6 +49,24 @@ app.controller('DetailsController', function($scope, $http, $routeParams) {
 //Top Rated controller
 app.controller('TopRatedController', function($scope, $http) {
   $http.get("http://api.themoviedb.org/3/movie/top_rated?api_key=" + API_KEY)
+    .then(function(response) {
+      $scope.response = response;
+      console.log(response);
+    });
+});
+
+//Upcoming controller
+app.controller('UpcomingController', function($scope, $http) {
+  $http.get("http://api.themoviedb.org/3/movie/upcoming?api_key=" + API_KEY)
+    .then(function(response) {
+      $scope.response = response;
+      console.log(response);
+    });
+});
+
+//Popular controller
+app.controller('PopularController', function($scope, $http) {
+  $http.get("http://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY)
     .then(function(response) {
       $scope.response = response;
       console.log(response);
