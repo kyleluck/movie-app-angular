@@ -6,6 +6,9 @@
   margin: auto;
   width: 75%;
 }
+p {
+  font-size: 1.2em;
+}
 .poster {
   float: left;
   margin: 5px 3px;
