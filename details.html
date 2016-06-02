@@ -7,4 +7,12 @@
   <p>{{ response.data.popularity }}</p>
   <a ng-show="response.data.homepage" ng-href="{{ response.data.homepage }}">Website</a>
   <a ng-show="response.data.imdb_id" ng-href="http://www.imdb.com/title/{{ response.data.imdb_id }}">IMDB</a>
+  <p>{{ response.data.release_date }}</p>
+  <p>{{ response.data.runtime }}</p>
+  <div>
+    <h4>Genres</h4>
+    <ul>
+      <li ng-repeat="genre in response.data.genres">{{ genre.name }}</li>
+    </ul>
+  </div>
 </div>
