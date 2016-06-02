@@ -1,1 +1,10 @@
-<h1>Details Page</h1>
+<a href="#/">Back to Main Page</a>
+<div>
+  <h1>{{ response.data.title }}</h1>
+  <img ng-src="http://image.tmdb.org/t/p/w500/{{ response.data.poster_path }}"/>
+  <p>{{ response.data.tagline }}</p>
+  <p>{{ response.data.overview }}</p>
+  <p>{{ response.data.popularity }}</p>
+  <a ng-show="response.data.homepage" ng-href="{{ response.data.homepage }}">Website</a>
+  <a ng-show="response.data.imdb_id" ng-href="http://www.imdb.com/title/{{ response.data.imdb_id }}">IMDB</a>
+</div>
