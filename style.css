@@ -24,18 +24,18 @@
   color: #ffffff;
   padding: 5px 10px;
   text-align: center;
-  font-size: 14px;
+  font-size: 24px;
   opacity: .9;
   text-decoration: none;
 }
 .searchbox {
   padding: 4px 4px;
-  font-size: 14px;
+  font-size: 24px;
 }
 .gobutton {
   padding: 5px 10px;
   text-align: center;
-  font-size: 14px;
+  font-size: 24px;
 }
 .searchform {
   margin-top: 10px;
