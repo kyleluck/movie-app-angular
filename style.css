@@ -18,3 +18,13 @@
   float: left;
   max-width: 500px;
 }
+.link {
+  display: inline-block;
+  background-color: #f44336;
+  color: #ffffff;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 14px;
+  opacity: .9;
+  text-decoration: none;
+}

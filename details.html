@@ -1,4 +1,4 @@
-<a href="#/">Back to Main Page</a>
+<a href="#/" class="link">Back to Main Page</a>
 <div>
   <img class="details-poster" ng-src="http://image.tmdb.org/t/p/w342/{{ response.data.poster_path }}"/>
   <div class="details">
@@ -6,8 +6,8 @@
     <p>Tagline: {{ response.data.tagline }}</p>
     <p>Overview: {{ response.data.overview }}</p>
     <p>Popularity: {{ response.data.popularity }}</p>
-    <a ng-show="response.data.homepage" ng-href="{{ response.data.homepage }}">Website</a>
-    <a ng-show="response.data.imdb_id" ng-href="http://www.imdb.com/title/{{ response.data.imdb_id }}">IMDB</a>
+    <a class="link" ng-show="response.data.homepage" ng-href="{{ response.data.homepage }}">Website</a>
+    <a class="link" ng-show="response.data.imdb_id" ng-href="http://www.imdb.com/title/{{ response.data.imdb_id }}">IMDB</a>
     <p>Release Date: {{ response.data.release_date }}</p>
     <p>Runtime: {{ response.data.runtime }}</p>
     <div>
