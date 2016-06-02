@@ -1,6 +1,6 @@
 <h1>Top Rated</h1>
 
-<div ng-repeat="result in response.data.results" class="poster">
+<div ng-repeat="result in response.data.results" class="poster" ng-show="result.poster_path">
   <a ng-href="#{{ result.id }}">
     <img ng-src="http://image.tmdb.org/t/p/w185/{{ result.poster_path }}"/>
   </a>

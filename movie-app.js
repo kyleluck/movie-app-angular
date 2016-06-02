@@ -21,6 +21,10 @@ app.config(function($routeProvider) {
       controller: 'PopularController',
       templateUrl: 'popular.html'
     })
+    .when('/search', {
+      controller: 'SearchController',
+      templateUrl: 'search.html'
+    })
     .when('/:movieId', {
       controller: 'DetailsController',
       templateUrl: 'details.html'
@@ -78,4 +82,15 @@ app.controller('PopularController', function($scope, $http) {
       $scope.response = response;
       console.log(response);
     });
+});
+
+//Search controller
+app.controller('SearchController', function($scope, $http, $location) {
+  $scope.searchMovies = function() {
+    $http.get("http://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&query=" + $scope.searchtext)
+      .then(function(response) {
+        console.log('search results: ', response);
+        $scope.response = response;
+      });
+  };
 });

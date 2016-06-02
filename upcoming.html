@@ -1,7 +1,7 @@
 <h1>Upcoming</h1>
 
-<div ng-repeat="result in response.data.results" class="poster">
+<div ng-repeat="result in response.data.results" class="poster" ng-show="result.poster_path" >
   <a ng-href="#{{ result.id }}">
-    <img ng-show="result.poster_path" ng-src="http://image.tmdb.org/t/p/w185/{{ result.poster_path }}"/>
+    <img ng-src="http://image.tmdb.org/t/p/w185/{{ result.poster_path }}"/>
   </a>
 </div>
