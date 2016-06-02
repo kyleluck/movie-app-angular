@@ -2,6 +2,10 @@
   box-sizing: border-box;
   font-family: 'Open Sans Condensed', sans-serif;
 }
+.container {
+  margin: auto;
+  width: 75%;
+}
 .poster {
   float: left;
   margin: 5px 3px;
