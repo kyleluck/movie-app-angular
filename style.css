@@ -16,6 +16,9 @@ p {
   height: 280px;
   box-shadow: 0 10px 6px -6px #777;
 }
+.poster img {
+  max-height: 275px;
+}
 .details-poster {
   float: left;
   margin: 3px;
