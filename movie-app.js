@@ -98,9 +98,6 @@ app.controller('SearchResultsController', function($scope, $http, $httpParamSeri
 
 //Search controller
 app.controller('SearchController', function($scope, $location) {
-  $scope.searchMovies = function() {
-
-  };
   $scope.switchView = function() {
     $location.path('/search/' + $scope.searchtext);
   };
