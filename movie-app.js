@@ -1,6 +1,13 @@
 var API_KEY = 'fec8b5ab27b292a68294261bb21b04a5';
 //create angular module with angular route dependency
-var app = angular.module('movie-app', ['ngRoute']);
+var app = angular.module('movie-app', ['ngRoute'])
+  .directive('ngMySearch', function() {
+    return {
+      restrict: 'A',
+      controller: 'SearchController',
+      templateUrl: 'searchbar.html'
+    }
+  });
 
 //configure routeProvider
 app.config(function($routeProvider) {
@@ -21,14 +28,15 @@ app.config(function($routeProvider) {
       controller: 'PopularController',
       templateUrl: 'popular.html'
     })
-    .when('/search', {
-      controller: 'SearchController',
+    .when('/search/:query', {
+      controller: 'SearchResultsController',
       templateUrl: 'search.html'
     })
     .when('/:movieId', {
       controller: 'DetailsController',
       templateUrl: 'details.html'
     })
+    .otherwise({redirectTo: '/'});
 });
 
 //Main page controller
@@ -80,12 +88,20 @@ app.controller('PopularController', function($scope, $http) {
     });
 });
 
+//Search Results controller
+app.controller('SearchResultsController', function($scope, $http, $httpParamSerializerJQLike, $routeParams) {
+  $http.get("http://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&query=" + $httpParamSerializerJQLike($routeParams.query))
+    .then(function(response) {
+      $scope.response = response;
+    });
+});
+
 //Search controller
-app.controller('SearchController', function($scope, $http, $httpParamSerializerJQLike) {
+app.controller('SearchController', function($scope, $location) {
   $scope.searchMovies = function() {
-    $http.get("http://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&query=" + $httpParamSerializerJQLike($scope.searchtext))
-      .then(function(response) {
-        $scope.response = response;
-      });
+
+  };
+  $scope.switchView = function() {
+    $location.path('/search/' + $scope.searchtext);
   };
 });
